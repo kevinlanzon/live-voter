@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {List} from 'immutable';
+import {List, Map} from 'immutable';
 
 describe('immutability', function() {
 
@@ -9,32 +9,29 @@ describe('immutability', function() {
       return currentState + 1;
     }
 
-    it('is immutable', function() {
-      let state = 1;
-      let nextState = increment(state);
-      expect(state).to.equal(1);
-      expect(nextState).to.equal(2);
-    });
-  });
-
-  describe('a list', function() {
+     describe('a tree', function() {
 
     function addMovie(currentState, movie) {
-      return currentState.push(movie);
+      return currentState.update('movies', movies => movies.push(movie));
     }
 
     it('is immutable', function() {
-      let state = List.of('A New Hope', 'The Empire Strikes Back');
+      let state = Map({
+        movies: List.of('A New Hope', 'The Empire Strikes Back')
+      });
       let nextState = addMovie(state, 'Return of The Jedi');
-      expect(state).to.equal(List.of(
-        'A New Hope',
-        'The Empire Strikes Back'
-      ));
-      expect(nextState).to.equal(List.of(
-        'A New Hope',
-        'The Empire Strikes Back',
-        'Return of The Jedi'
-      ));
+        expect(state).to.equal(Map({
+          movies: List.of(
+            'A New Hope',
+            'The Empire Strikes Back')
+        }));
+        expect(nextState).to.equal(Map({
+          movies: List.of(
+            'A New Hope',
+            'The Empire Strikes Back',
+            'Return of The Jedi')
+        }));
+      });
     });
   });
 });
