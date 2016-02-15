@@ -1,11 +1,14 @@
 Live Voter
 ======
 
+An application for organising live votes.
+
 Technologies used
 -----
 - JavaScript ES6
 - Babel
 - ReactJS
+- Redux
 - Mocha
 - Chai
 - Immutable
@@ -14,5 +17,5 @@ Technologies used
 How to run tests
 ----
 ```sh
-$ npm run test
+$ npm test
 ```
