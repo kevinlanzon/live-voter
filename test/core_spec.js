@@ -2,11 +2,11 @@ import {List, Map} from 'immutable';
 import {expect} from 'chai';
 import {setEntries, next} from '../js/core';
 
-describe('app logic', function() {
+describe('app logic', () => {
 
-  describe('setEntries', function() {
+  describe('setEntries', () => {
 
-    it('add the entries to the state', function() {
+    it('add the entries to the state', () => {
       const state = Map();
       const entries = List.of('A New Hope', 'The Empire Strikes Back');
       const nextState = setEntries(state, entries);
@@ -15,7 +15,7 @@ describe('app logic', function() {
       }));
     });
 
-    it('converts to immutable', function() {
+    it('converts to immutable', () => {
       const state = Map();
       const entries = ['A New Hope', 'The Empire Strikes Back'];
       const nextState = setEntries(state, entries);
@@ -25,9 +25,9 @@ describe('app logic', function() {
     });
   });
 
-  describe('next', function() {
+  describe('next', () => {
 
-    it('takes the next two entries under vote', function() {
+    it('takes the next two entries under vote', () => {
       const state = Map({
         entries: List.of('A New Hope', 'The Empire Strikes Back', 'Return of The Jedi')
       });

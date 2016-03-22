@@ -1,21 +1,21 @@
 import {expect} from 'chai';
 import {List, Map} from 'immutable';
 
-describe('immutability', function() {
+describe('immutability', () => {
 
-  describe('a number', function() {
+  describe('a number', () => {
 
     function increment(currentState) {
       return currentState + 1;
     }
 
-     describe('a tree', function() {
+     describe('a tree', () => {
 
     function addMovie(currentState, movie) {
       return currentState.update('movies', movies => movies.push(movie));
     }
 
-    it('is immutable', function() {
+    it('is immutable', () => {
       let state = Map({
         movies: List.of('A New Hope', 'The Empire Strikes Back')
       });
