@@ -12,6 +12,7 @@ Technologies used
 - Mocha
 - Chai
 - Immutable
+- Grunt
 
 
 How to run tests
